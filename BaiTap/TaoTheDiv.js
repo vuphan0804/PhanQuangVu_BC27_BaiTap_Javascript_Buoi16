@@ -1,23 +1,25 @@
 function createTagDiv() {
-  var showResult = document.getElementById("showResult");
-  var showTextResult = document.getElementById("showTextResult");
-
-  for (let i = 1; i <= 10; i++) {
-    if (i % 2 !== 0) {
-      oddDiv(showResult, showTextResult, i);
-    } else {
-      evenDiv(showResult, showTextResult, i);
-    }
+  for (var i = 1; i <= 10; i++) {
+    if (i % 2 === 0) {
+      evenDiv(i);
+    } else oddDiv(i);
   }
 }
-function oddDiv(showResult, showTextResult, i) {
-  showResult.style.display = "block";
-  showResult.style = "background-color:blue";
-  showTextResult.innerHTML = `Div lẻ ${i}`;
+function oddDiv(i) {
+  var oddDiv = document.createElement("div");
+  oddDiv.innerHTML = `Div lẻ ${i}`;
+  oddDiv.style.backgroundColor = "blue";
+  oddDiv.style.color = "white";
+  oddDiv.style.padding = "12px";
+  document.getElementById("showResult").appendChild(oddDiv);
 }
 
-function evenDiv(showResult, showTextResult, i) {
-  showResult.style.display = "block";
-  showResult.style = "background-color:red";
-  showTextResult.innerHTML = `Div chẵn ${i}`;
+function evenDiv(i) {
+  var evenDiv = document.createElement("div");
+  evenDiv.innerHTML = `Div chẵn ${i}`;
+  evenDiv.style.backgroundColor = "red";
+  evenDiv.style.color = "white";
+  evenDiv.style.padding = "12px";
+
+  document.getElementById("showResult").appendChild(evenDiv);
 }
